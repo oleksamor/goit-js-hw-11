@@ -22,6 +22,7 @@ import{i,S as f}from"./assets/vendor-8c59ed88.js";(function(){const a=document.c
                   <div class = "parameters">
                  <span class ="title">Downloads</span>
                  <span class = "info">${r}</span>
-                 </div></div>
+                 </div>
+                 </div>
             </li>`).join("")}function v(t){t.style.display="block"}function d(t){t.style.display="none"}const m=document.querySelector(".form"),c=document.querySelector(".css-loader"),u=document.querySelector(".gallery");m.addEventListener("submit",L);function L(t){t.preventDefault(),u.innerHTML="";const a=t.currentTarget.elements.data.value.trim();if(a==="")return i.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"bottomRight",messageColor:"white",backgroundColor:"red",progressBarColor:"black"});v(c),y(a).then(s=>{if(s.hits.length===0)return d(c),i.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"bottomRight",messageColor:"white",backgroundColor:"red",progressBarColor:"black"});d(c),u.innerHTML=b(s.hits),S.refresh()}).catch(s=>{i.error({message:`${s}`})}).finally(()=>{m.reset()})}const S=new f(".gallery a",{captionsData:"alt",captionsPosition:"bottom",captionsDelay:250});
 //# sourceMappingURL=commonHelpers.js.map
