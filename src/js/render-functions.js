@@ -34,7 +34,8 @@ export function createMarkup(array) {
                   <div class = "parameters">
                  <span class ="title">Downloads</span>
                  <span class = "info">${downloads}</span>
-                 </div></div>
+                 </div>
+                 </div>
             </li>`
     )
     .join('');
