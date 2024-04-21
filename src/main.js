@@ -28,8 +28,10 @@ function handelSubmit(event) {
     });
   }
   showLoading(loader);
+
   objectSearch(dataSearch)
     .then(data => {
+      console.log(data.hits);
       if (data.hits.length === 0) {
         hideLoading(loader);
         return iziToast.error({

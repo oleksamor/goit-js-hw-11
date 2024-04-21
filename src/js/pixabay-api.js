@@ -22,7 +22,7 @@ export function objectSearch(searchImage) {
 
 let mask = document.querySelector(".css-loader");
 window.addEventListener('load', () => {
-  mask.classList('hide');
+  mask.classList.add('hide');
   setTimeout(() => {
     mask.remove()
   }, 600);
