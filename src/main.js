@@ -8,15 +8,21 @@ import { showLoading } from './js/render-functions';
 import { hideLoading } from './js/render-functions';
 
 const form = document.querySelector('.form');
-const loader = document.querySelector('.css-loader');
+const loader = document.querySelector('.loader');
 const gallery = document.querySelector('.gallery');
+
+hideLoading(loader);
 
 form.addEventListener('submit', handelSubmit);
 
 function handelSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
+
+  showLoading(loader);
+  
   const dataSearch = event.currentTarget.elements.data.value.trim();
+ 
   if (dataSearch === '') {
     return iziToast.error({
       message:
@@ -27,13 +33,15 @@ function handelSubmit(event) {
       progressBarColor: 'black',
     });
   }
-  showLoading(loader);
+ 
 
   objectSearch(dataSearch)
     .then(data => {
-      console.log(data.hits);
+      
+      hideLoading(loader);
+      
       if (data.hits.length === 0) {
-        hideLoading(loader);
+        
         return iziToast.error({
           message:
             'Sorry, there are no images matching your search query. Please try again!',
@@ -43,11 +51,12 @@ function handelSubmit(event) {
           progressBarColor: 'black',
         });
       }
-      hideLoading(loader);
+  
       gallery.innerHTML = createMarkup(data.hits);
       lightbox.refresh();
     })
     .catch(error => {
+      hideLoading(loader);
       iziToast.error({
         message: `${error}`,
       });

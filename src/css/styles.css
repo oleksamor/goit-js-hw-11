@@ -23,75 +23,80 @@
 }
 
 .loader {
-  width: 160px;
-  height: 185px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 100px 100px 0 0;
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
 }
 
+.loader:before,
 .loader:after {
+  border-radius: 50%;
   content: "";
-  position: absolute;
-  width: 100px;
-  height: 125px;
-  left: 50%;
-  top: 25px;
-  transform: translateX(-50%);
-  background-image: radial-gradient(circle, #000 48%, transparent 55%),
-    radial-gradient(circle, #000 48%, transparent 55%),
-    radial-gradient(circle, #fff 30%, transparent 45%),
-    radial-gradient(circle, #000 48%, transparent 51%),
-    linear-gradient(#000 20px, transparent 0),
-    linear-gradient(#cfecf9 60px, transparent 0),
-    radial-gradient(circle, #cfecf9 50%, transparent 51%),
-    radial-gradient(circle, #cfecf9 50%, transparent 51%);
-  background-repeat: no-repeat;
-  background-size: 16px 16px, 16px 16px, 10px 10px, 42px 42px, 12px 3px,
-    50px 25px, 70px 70px, 70px 70px;
-  background-position: 25px 10px, 55px 10px, 36px 44px, 50% 30px, 50% 85px,
-    50% 50px, 50% 22px, 50% 45px;
-  animation: faceLift 3s linear infinite alternate;
+  display: block;
+  height: 20px;
+  width: 20px;
 }
 
 .loader:before {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 125px;
-  left: -20%;
-  top: 0;
-  background-image: radial-gradient(circle, #fff 48%, transparent 50%),
-    radial-gradient(circle, #fff 48%, transparent 50%);
-  background-repeat: no-repeat;
-  background-size: 65px 65px;
-  background-position: 0px 12px, 145px 12px;
-  animation: earLift 3s linear infinite alternate;
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 #ff3d00;
+  margin-bottom: 10px;
 }
 
-@keyframes faceLift {
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #ff3d00;
+  box-shadow: 30px 0 0 #fff;
+}
+
+@keyframes rotate {
   0% {
-    transform: translateX(-60%);
+    transform: rotate(0deg) scale(0.8)
+  }
+
+  50% {
+    transform: rotate(360deg) scale(1.2)
   }
 
   100% {
-    transform: translateX(-30%);
+    transform: rotate(720deg) scale(0.8)
   }
 }
 
-@keyframes earLift {
+@keyframes ball1 {
   0% {
-    transform: translateX(10px);
+    box-shadow: 30px 0 0 #ff3d00;
+  }
+
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
   }
 
   100% {
-    transform: translateX(0px);
+    box-shadow: 30px 0 0 #ff3d00;
+    margin-bottom: 10px;
   }
 }
 
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
+}
 
 .form {
   display: flex;
