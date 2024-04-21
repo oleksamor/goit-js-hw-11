@@ -10,7 +10,8 @@ export function objectSearch(searchImage) {
     safesearch: 'true',
   });
 
-  return fetch(`${BASE_URL}/?${params}`).then(response => {
+  return fetch(`${BASE_URL}/?${params}`)
+    .then(response => {
     if (!response.ok) {
       throw new Error(
         'Sorry, there are no images matching your search query. Please try again!'
@@ -20,11 +21,11 @@ export function objectSearch(searchImage) {
   });
 }
 
-let mask = document.querySelector(".css-loader");
-window.addEventListener('load', () => {
-  mask.classList.add('hide');
-  setTimeout(() => {
-    mask.remove()
-  }, 600);
+// let mask = document.querySelector(".css-loader");
+// window.addEventListener('load', () => {
+//   mask.classList.add('hide');
+//   setTimeout(() => {
+//     mask.remove()
+//   }, 600);
 
-});
+// });
