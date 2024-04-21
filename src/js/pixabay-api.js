@@ -20,3 +20,11 @@ export function objectSearch(searchImage) {
   });
 }
 
+let mask = document.querySelector(".css-loader");
+window.addEventListener('load', () => {
+  mask.classList('hide');
+  setTimeout(() => {
+    mask.remove()
+  }, 600);
+
+});
